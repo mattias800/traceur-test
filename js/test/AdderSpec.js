@@ -9,6 +9,7 @@ describe("Adder", function() {
     it("should work", function() {
         expect(true).toBeTruthy();
     });
+
     it("should add", function() {
         expect(adder.add(1, 2)).toBe(3);
     });

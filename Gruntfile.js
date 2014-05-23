@@ -13,12 +13,12 @@ module.exports = function(grunt) {
                     'js/src/App-build.js' : ['./js/src/App.js']
                 },
                 options : {
-                    traceurOptions : '--experimental --source-maps --types=true --type-assertions --type-assertion-module="assert"'
+                    traceurOptions : '--experimental --source-maps --types=true --type-assertions --type-assertion-module="assert" --modules=instantiate'
                 }
             },
             test : {
                 files : {
-                    'js/Test-build.js' : ['./js/test/**/*.js']
+                    'js/Test-build.js' : ['./js/test/**/*Spec.js']
                 },
                 options : {
                     traceurOptions : '--experimental --source-maps --types=true --type-assertions --type-assertion-module="../src/assert"'
@@ -53,8 +53,14 @@ module.exports = function(grunt) {
 
     grunt.registerTask('default',
         [
+            "traceur"
+        ]);
+
+    grunt.registerTask('test',
+        [
             "traceur",
             "karma"
         ]);
+
 };
 

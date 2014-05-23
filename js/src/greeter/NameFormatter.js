@@ -1,6 +1,6 @@
 export class NameFormatter {
 
-    format (name : string) {
+    format (name : string) : string {
         return name.toUpperCase();
     }
 }

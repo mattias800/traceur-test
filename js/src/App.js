@@ -1,12 +1,15 @@
+System.map['jquery'] = "../deps/jquery";
+
 import {Injector} from "./di/injector";
 import {Greeter} from "./greeter/Greeter";
+import {NameFormatterStub} from "./greeter/NameFormatterStub";
 
-console.log("Creating greeter..");
-var injector = new Injector();
+var injector = new Injector([NameFormatterStub]);
 var greeter = injector.get(Greeter);
 
-function say(greeterss : Greeter) {
+    function say(greeterss:Greeter) {
     greeterss.sayHi("Mattias");
 }
 
 say(greeter);
+

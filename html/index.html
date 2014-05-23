@@ -1,11 +1,22 @@
 <!doctype html>
 
-<script src="../node_modules/grunt-traceur/node_modules/traceur/bin/traceur-runtime.js"></script>
+<script src="../js/deps/traceur-runtime.js"></script>
+<script src="../js/deps/es6-module-loader.js"></script>
+<script src="../js/deps/system.js"></script>
 <script src="../js/src/App-build.js"></script>
 
 <script type="text/javascript">
 
     console.log("Loading app...");
+
+    System.map['jquery'] = '../js/deps/jquery';
+
+    System.import("App").then(function() {
+        console.log("App has been loaded!");
+    }, function(err) {
+        console.error("App failed to load.");
+        console.log(err);
+    });
 
 </script>
 
